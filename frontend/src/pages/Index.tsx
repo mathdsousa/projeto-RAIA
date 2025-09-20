@@ -32,15 +32,24 @@ const Index = () => {
     }
   };
 
-  const handleGameComplete = (score: number) => {
-    setFinalScore(score);
-    setCurrentScreen('results');
-  };
+const handleGameComplete = async (score: number) => {
+  try {
+    const gameId = sessionStorage.getItem('game_id');
 
-  const handleRestart = () => {
-    setFinalScore(0);
-    setCurrentScreen('start');
-  };
+  } catch (err) {
+    console.error('Erro ao enviar pontuação final:', err);
+  }
+
+  setFinalScore(score);
+  setCurrentScreen('results');
+};
+
+const handleRestart = () => {
+  // Limpar sessionStorage ao reiniciar
+  sessionStorage.removeItem('game_id');
+  setFinalScore(0);
+  setCurrentScreen('start');
+};
 
   if (currentScreen === 'playing') {
     return (

@@ -2,8 +2,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 
 interface ResultsPageProps {
-  score: number;
-  totalQuestions: number;
+  score: 26;
+  totalQuestions: 40;
   onRestart: () => void;
 }
 
@@ -46,8 +46,7 @@ export const ResultsPage: React.FC<ResultsPageProps> = ({ score, totalQuestions,
 
         <div className="space-y-4">
           <p className="text-muted-foreground leading-relaxed">
-            Você demonstrou {percentage >= 70 ? 'uma excelente' : percentage >= 50 ? 'uma boa' : 'alguma'} 
-            {' '}capacidade de identificar diferentes tipos de linguagem na mídia. 
+            Parabéns por completar o exercício! Observa-se que você identificou com segurança manchetes neutras e manipuladoras, mas houve alguma dificuldade em diferenciar corretamente manchetes sensacionalistas e omissivas. Note que, em alguns casos, sensacionalismo foi confundido com omissão e vice-versa. Para melhorar, procure prestar atenção em sinais de exagero ou dramatização (sensacionalismo) e em informações que foram parcialmente omitidas ou suavizadas (omissão). Reflita sobre cada manchete considerando o que está explícito, o que foi enfatizado e o que pode ter sido deixado de fora. Isso ajudará a afinar seu olhar crítico para diferentes tipos de vieses nas notícias. 
             {percentage < 70 && ' Continue praticando para melhorar ainda mais!'}
           </p>
           

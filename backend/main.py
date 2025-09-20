@@ -25,7 +25,7 @@ app = FastAPI()
 # Configurar CORS - ADICIONE ESTAS LINHAS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:8080"],  # URL do seu frontend
+    allow_origins=["*"],  # URL do seu frontend
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -123,7 +123,7 @@ def new_round(game_id: str):
     #]
 
     game = games[game_id]
-    if game["round"] >= 10:
+    if game["round"] >= 11:
         return {"message": "Jogo já terminou."}
 
     fact = facts[game["round"]]
