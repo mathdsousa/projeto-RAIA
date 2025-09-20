@@ -33,7 +33,6 @@ app.add_middleware(
 
 # Estado do jogo em memória (simples)
 games = {}
-
 # Estrutura do request de resposta
 class AnswerRequest(BaseModel):
     game_id: str
@@ -102,7 +101,8 @@ def new_round(game_id: str):
         "sortBy": "popularity",
         "language": "pt",     
         "pageSize": 10,       
-    }
+        "apiKey": os.getenv("INFO_KEY")
+}
 
     response = requests.get(url, params=params)
     data = response.json()
